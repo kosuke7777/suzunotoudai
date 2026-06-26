@@ -7,11 +7,11 @@
   <title>すずのとうだい | 金沢大学学生団体</title>
   <style>
     /* ヘッダー関連を写真より前面に表示 */
-    header, nav, .dropdown, .nav-menu {
+    header, nav, .dropdown, #nav-menu {
         position: relative;
         z-index: 2000;
     }
-　
+
     /* 写真スライダーは後ろ */
     .hero {
         position: relative;
@@ -126,14 +126,17 @@
 
     /* 📱 スマホ対応スタイル */
     @media (max-width: 768px) {
-      nav ul {
-        display: none; /* 通常時は非表示 */
-        flex-direction: column;
-        background: var(--main-color);
+      nav {
         position: absolute;
         top: 50px;
         left: 0;
         width: 100%;
+      }
+      
+      nav ul {
+        display: none; /* 通常時は非表示にして非表示バグを解消 */
+        flex-direction: column;
+        background: var(--main-color);
         padding: 20px 0;
         gap: 15px;
         margin: 0;
