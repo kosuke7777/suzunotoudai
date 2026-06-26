@@ -126,16 +126,32 @@ header, nav, .dropdown, .nav-menu {
 
     @media (max-width: 768px) {
       nav ul {
-        display: none;
+        display: none; /* 通常時は非表示 */
         flex-direction: column;
         background: var(--main-color);
         position: absolute;
-        top: 60px;
+        top: 50px; /* ヘッダーの高さに合わせる */
         left: 0;
         width: 100%;
         padding: 20px 0;
         gap: 15px;
+        margin: 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       }
+
+      /* 👇 ここが足りなかったため、連動して動いていませんでした */
+      nav ul.active {
+        display: flex !important; /* ボタンを押したときだけ縦並びで表示 */
+      }
+
+      .search-bar {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
 
       nav ul.active {
         display: flex;
