@@ -74,7 +74,7 @@
             <a href="knitting.html">編み物</a>
           </div>
         </li>
-        <li><a href="#">団体概要</a></li>
+        <li><a href="about.html">団体概要</a></li>
         <li><a href="#">お問い合わせ</a></li>
       </ul>
     </nav>
@@ -82,7 +82,6 @@
 </header>
 
 <section class="hero">
-  <!-- JPEG は images/silk に入れてください -->
   <img src="images/silk/1.jpg" class="slide active">
   <img src="images/silk/2.jpg" class="slide">
   <img src="images/silk/3.jpg" class="slide">
@@ -103,16 +102,21 @@
 </section>
 
 <script>
-function toggleDropdown(e){ e.preventDefault();
-  document.getElementById("dropdown").classList.toggle("active"); }
+function toggleDropdown(e){ 
+  e.preventDefault();
+  document.getElementById("dropdown").classList.toggle("active"); 
+}
 
+// エラーが起きにくい安全な記述に修正しました
 let index = 0;
 const slides = document.querySelectorAll(".slide");
-setInterval(() => {
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
-}, 5000);
+if (slides.length > 0) {
+  setInterval(() => {
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+  }, 5000);
+}
 </script>
 
 </body>
